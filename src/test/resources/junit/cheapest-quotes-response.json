@@ -1,0 +1,36 @@
+{
+  "quotes": [
+    {
+      "price": 62,
+      "direct": true,
+      "outboundLeg": {
+        "carrier": "easyjet",
+        "origin": "ATH",
+        "destination": "LND",
+        "departureDate": "2016-10-10T00:00:00"
+      },
+      "inboundLeg": {
+        "carrier": "easyjet",
+        "origin": "LND",
+        "destination": "ATH",
+        "departureDate": "2016-10-20T00:00:00"
+      }
+    },
+    {
+      "price": 72,
+      "direct": true,
+      "outboundLeg": {
+        "carrier": "easyjet",
+        "origin": "ATH",
+        "destination": "MAD",
+        "departureDate": "2016-10-10T00:00:00"
+      },
+      "inboundLeg": {
+        "carrier": "easyjet",
+        "origin": "MAD",
+        "destination": "ATH",
+        "departureDate": "2016-10-20T00:00:00"
+      }
+    }
+  ]
+}
