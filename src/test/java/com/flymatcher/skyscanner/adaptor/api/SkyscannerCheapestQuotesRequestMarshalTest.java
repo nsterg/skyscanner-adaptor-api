@@ -19,8 +19,7 @@ public class SkyscannerCheapestQuotesRequestMarshalTest {
 
   @Before
   public void setup() {
-    mapper = new ObjectMapper();
-    mapper.findAndRegisterModules();
+    mapper = new ObjectMapper().findAndRegisterModules();
   }
 
   @Test

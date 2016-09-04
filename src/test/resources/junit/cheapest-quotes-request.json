@@ -2,5 +2,7 @@
   "country":"GR",
   "city":"ATH",
   "currency":"EUR",
-  "departureDate":"2016-10-10T00:00:00"
+  "locale":"en-GB",
+  "outboundPartialDate":"2016-10-10T00:00:00",
+  "inboundPartialDate":"2016-10-20T00:00:00"
 }

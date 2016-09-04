@@ -11,13 +11,18 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class CheapestQuotesRequest {
 
-  @JsonPropertyOrder({"country", "city", "currency", "departureDate"})
+  @JsonPropertyOrder({"country", "city", "currency", "locale", "outboundPartialDate",
+      "inboundPartialDate"})
 
   private String country;
   private String city;
   private String currency;
+  private String locale;
   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-  private LocalDateTime departureDate;
+  private LocalDateTime outboundPartialDate;
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+  private LocalDateTime inboundPartialDate;
+
 
 
   public String getCountry() {
@@ -44,12 +49,29 @@ public class CheapestQuotesRequest {
     this.currency = currency;
   }
 
-  public LocalDateTime getDepartureDate() {
-    return departureDate;
+
+  public String getLocale() {
+    return locale;
   }
 
-  public void setDepartureDate(final LocalDateTime departureDate) {
-    this.departureDate = departureDate;
+  public void setLocale(final String locale) {
+    this.locale = locale;
+  }
+
+  public LocalDateTime getOutboundPartialDate() {
+    return outboundPartialDate;
+  }
+
+  public void setOutboundPartialDate(final LocalDateTime outboundPartialDate) {
+    this.outboundPartialDate = outboundPartialDate;
+  }
+
+  public LocalDateTime getInboundPartialDate() {
+    return inboundPartialDate;
+  }
+
+  public void setInboundPartialDate(final LocalDateTime inboundPartialDate) {
+    this.inboundPartialDate = inboundPartialDate;
   }
 
   @Override
