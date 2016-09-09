@@ -4,7 +4,7 @@ import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
 import static org.apache.commons.lang.builder.ToStringBuilder.reflectionToString;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,10 +18,10 @@ public class CheapestQuotesRequest {
   private String city;
   private String currency;
   private String locale;
-  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-  private LocalDateTime outboundPartialDate;
-  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-  private LocalDateTime inboundPartialDate;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  private LocalDate outboundPartialDate;
+  @JsonFormat(pattern = "yyyy-MM-dd")
+  private LocalDate inboundPartialDate;
 
 
 
@@ -58,19 +58,19 @@ public class CheapestQuotesRequest {
     this.locale = locale;
   }
 
-  public LocalDateTime getOutboundPartialDate() {
+  public LocalDate getOutboundPartialDate() {
     return outboundPartialDate;
   }
 
-  public void setOutboundPartialDate(final LocalDateTime outboundPartialDate) {
+  public void setOutboundPartialDate(final LocalDate outboundPartialDate) {
     this.outboundPartialDate = outboundPartialDate;
   }
 
-  public LocalDateTime getInboundPartialDate() {
+  public LocalDate getInboundPartialDate() {
     return inboundPartialDate;
   }
 
-  public void setInboundPartialDate(final LocalDateTime inboundPartialDate) {
+  public void setInboundPartialDate(final LocalDate inboundPartialDate) {
     this.inboundPartialDate = inboundPartialDate;
   }
 

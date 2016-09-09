@@ -1,8 +1,8 @@
 package com.flymatcher.skyscanner.adaptor.api.builders;
 
-import static java.time.LocalDateTime.parse;
+import static java.time.LocalDate.parse;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import com.flymatcher.skyscanner.adaptor.api.CheapestQuotesRequest;
 
@@ -13,8 +13,8 @@ public class CheapestQuotesRequestBuilder {
   private String city;
   private String currency;
   private String locale;
-  private LocalDateTime outboundPartialDate;
-  private LocalDateTime inboundPartialDate;
+  private LocalDate outboundPartialDate;
+  private LocalDate inboundPartialDate;
 
   private CheapestQuotesRequestBuilder() {}
 
@@ -54,8 +54,7 @@ public class CheapestQuotesRequestBuilder {
     return this;
   }
 
-  public CheapestQuotesRequestBuilder withOutboundPartialDate(
-      final LocalDateTime outboundPartialDate) {
+  public CheapestQuotesRequestBuilder withOutboundPartialDate(final LocalDate outboundPartialDate) {
     this.outboundPartialDate = outboundPartialDate;
     return this;
   }
@@ -65,8 +64,7 @@ public class CheapestQuotesRequestBuilder {
     return this;
   }
 
-  public CheapestQuotesRequestBuilder withInboundPartialDate(
-      final LocalDateTime inboundPartialDate) {
+  public CheapestQuotesRequestBuilder withInboundPartialDate(final LocalDate inboundPartialDate) {
     this.inboundPartialDate = inboundPartialDate;
     return this;
   }
@@ -81,8 +79,8 @@ public class CheapestQuotesRequestBuilder {
     this.city = "ATH";
     this.currency = "EUR";
     this.locale = "en-GB";
-    this.outboundPartialDate = parse("2016-10-10T00:00:00");
-    this.inboundPartialDate = parse("2016-10-20T00:00:00");
+    this.outboundPartialDate = parse("2016-10-10");
+    this.inboundPartialDate = parse("2016-10-20");
 
     return this;
   }
