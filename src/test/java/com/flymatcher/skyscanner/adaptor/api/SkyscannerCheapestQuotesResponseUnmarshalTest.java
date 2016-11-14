@@ -1,6 +1,6 @@
 package com.flymatcher.skyscanner.adaptor.api;
 
-import static com.flymatcher.skyscanner.adaptor.api.builders.InOutBoundLegBuilder.aInOutBoundLeg;
+import static com.flymatcher.skyscanner.adaptor.api.builders.LegBuilder.aLeg;
 import static com.flymatcher.skyscanner.adaptor.api.builders.SkyscannerCheapestQuotesResponseBuilder.aSkyscannerCheapestQuotesResponse;
 import static com.flymatcher.skyscanner.adaptor.api.builders.SkyscannerQuoteBuilder.aSkyscannerQuote;
 import static org.apache.commons.io.FileUtils.readFileToString;
@@ -16,12 +16,14 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.flymatcher.skyscanner.adaptor.api.builders.InOutBoundLegBuilder;
+import com.flymatcher.skyscanner.adaptor.api.builders.LegBuilder;
 
 public class SkyscannerCheapestQuotesResponseUnmarshalTest {
 
   private static final String OUT_BOUND_DATE = "2016-10-10T00:00:00";
   private static final String IN_BOUND_DATE = "2016-10-20T00:00:00";
+  private static final String QUOTE_DATE = "2016-09-12T00:00:00";
+
   private static final String CARRIER = "easyjet";
   private static final String ORIGIN = "ATH";
   private static final String DESTINATION1 = "LND";
@@ -41,10 +43,10 @@ public class SkyscannerCheapestQuotesResponseUnmarshalTest {
 
     // @formatter:off
     final SkyscannerCheapestQuotesResponse expectedDto = aSkyscannerCheapestQuotesResponse().withQuotes(
-                                                            aSkyscannerQuote().withDirect(true).withPrice(62)
+                                                            aSkyscannerQuote().withDirect(true).withPrice(62).withQuoteDate(QUOTE_DATE)
                                                               .withInboundLeg(buildInBoundLeg(DESTINATION1))
                                                               .withOutboundLeg(buildOutBoundLeg(DESTINATION1)),
-                                                            aSkyscannerQuote().withDirect(true).withPrice(72)
+                                                            aSkyscannerQuote().withDirect(true).withPrice(72).withQuoteDate(QUOTE_DATE)
                                                               .withInboundLeg(buildInBoundLeg(DESTINATION2))
                                                               .withOutboundLeg(buildOutBoundLeg(DESTINATION2)))
                                                           .build();
@@ -60,13 +62,13 @@ public class SkyscannerCheapestQuotesResponseUnmarshalTest {
 
   }
 
-  private InOutBoundLegBuilder buildOutBoundLeg(final String destination) throws ParseException {
-    return aInOutBoundLeg().withCarrier(CARRIER).withOrigin(ORIGIN).withDestination(destination)
+  private LegBuilder buildOutBoundLeg(final String destination) throws ParseException {
+    return aLeg().withCarrier(CARRIER).withOrigin(ORIGIN).withDestination(destination)
         .withDepartureDate(OUT_BOUND_DATE);
   }
 
-  private InOutBoundLegBuilder buildInBoundLeg(final String destination) throws ParseException {
-    return aInOutBoundLeg().withCarrier(CARRIER).withOrigin(destination).withDestination(ORIGIN)
+  private LegBuilder buildInBoundLeg(final String destination) throws ParseException {
+    return aLeg().withCarrier(CARRIER).withOrigin(destination).withDestination(ORIGIN)
         .withDepartureDate(IN_BOUND_DATE);
   }
 

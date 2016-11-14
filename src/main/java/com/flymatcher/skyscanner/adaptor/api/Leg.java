@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-public class InOutBoundLeg {
+public class Leg {
 
-  @JsonPropertyOrder({"carrier", "origin", "destination", "departureDate", "type"})
+  @JsonPropertyOrder({"carrier", "origin", "destination", "departureDate"})
 
   private String carrier;
 
@@ -21,8 +21,6 @@ public class InOutBoundLeg {
 
   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
   private LocalDateTime departureDate;
-
-  private LegType type;
 
   public String getCarrier() {
     return carrier;
@@ -54,14 +52,6 @@ public class InOutBoundLeg {
 
   public void setDepartureDate(final LocalDateTime departureDate) {
     this.departureDate = departureDate;
-  }
-
-  public LegType getType() {
-    return type;
-  }
-
-  public void setType(final LegType type) {
-    this.type = type;
   }
 
   @Override

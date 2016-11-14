@@ -4,33 +4,39 @@ import static org.apache.commons.lang.builder.EqualsBuilder.reflectionEquals;
 import static org.apache.commons.lang.builder.HashCodeBuilder.reflectionHashCode;
 import static org.apache.commons.lang.builder.ToStringBuilder.reflectionToString;
 
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class SkyscannerQuote {
 
   @JsonPropertyOrder({"outboundLeg", "inboundLeg", "price", "direct"})
 
-  private InOutBoundLeg outboundLeg;
+  private Leg outboundLeg;
 
-  private InOutBoundLeg inboundLeg;
+  private Leg inboundLeg;
 
   private double price;
 
   private boolean direct;
 
-  public InOutBoundLeg getOutboundLeg() {
+  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
+  private LocalDateTime quoteDate;
+
+  public Leg getOutboundLeg() {
     return outboundLeg;
   }
 
-  public void setOutboundLeg(final InOutBoundLeg outboundLeg) {
+  public void setOutboundLeg(final Leg outboundLeg) {
     this.outboundLeg = outboundLeg;
   }
 
-  public InOutBoundLeg getInboundLeg() {
+  public Leg getInboundLeg() {
     return inboundLeg;
   }
 
-  public void setInboundLeg(final InOutBoundLeg inboundLeg) {
+  public void setInboundLeg(final Leg inboundLeg) {
     this.inboundLeg = inboundLeg;
   }
 
@@ -50,6 +56,14 @@ public class SkyscannerQuote {
     this.direct = direct;
   }
 
+
+  public LocalDateTime getQuoteDate() {
+    return quoteDate;
+  }
+
+  public void setQuoteDate(final LocalDateTime quoteDate) {
+    this.quoteDate = quoteDate;
+  }
 
   @Override
   public int hashCode() {

@@ -1,15 +1,20 @@
 package com.flymatcher.skyscanner.adaptor.api.builders;
 
-import com.flymatcher.skyscanner.adaptor.api.InOutBoundLeg;
+import static java.time.LocalDateTime.parse;
+
+import java.time.LocalDateTime;
+
+import com.flymatcher.skyscanner.adaptor.api.Leg;
 import com.flymatcher.skyscanner.adaptor.api.SkyscannerQuote;
 
 
 public class SkyscannerQuoteBuilder {
 
-  private InOutBoundLeg outboundLeg;
-  private InOutBoundLeg inboundLeg;
+  private Leg outboundLeg;
+  private Leg inboundLeg;
   private double price;
   private boolean direct;
+  private LocalDateTime quoteDate;
 
   private SkyscannerQuoteBuilder() {}
 
@@ -24,16 +29,17 @@ public class SkyscannerQuoteBuilder {
     skyscannerQuote.setInboundLeg(inboundLeg);
     skyscannerQuote.setPrice(price);
     skyscannerQuote.setDirect(direct);
+    skyscannerQuote.setQuoteDate(quoteDate);
 
     return skyscannerQuote;
   }
 
-  public SkyscannerQuoteBuilder withOutboundLeg(final InOutBoundLegBuilder builder) {
+  public SkyscannerQuoteBuilder withOutboundLeg(final LegBuilder builder) {
     this.outboundLeg = builder.build();
     return this;
   }
 
-  public SkyscannerQuoteBuilder withInboundLeg(final InOutBoundLegBuilder builder) {
+  public SkyscannerQuoteBuilder withInboundLeg(final LegBuilder builder) {
     this.inboundLeg = builder.build();
     return this;
   }
@@ -45,6 +51,16 @@ public class SkyscannerQuoteBuilder {
 
   public SkyscannerQuoteBuilder withDirect(final boolean direct) {
     this.direct = direct;
+    return this;
+  }
+
+  public SkyscannerQuoteBuilder withQuoteDate(final LocalDateTime quoteDate) {
+    this.quoteDate = quoteDate;
+    return this;
+  }
+
+  public SkyscannerQuoteBuilder withQuoteDate(final String quoteDate) {
+    this.quoteDate = parse(quoteDate);
     return this;
   }
 
