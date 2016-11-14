@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.flymatcher</groupId>
 	<artifactId>skyscanner-adaptor-api</artifactId>
-	<version>1.0.3-SNAPSHOT</version>
+	<version>1.0.3</version>
 	<packaging>jar</packaging>
 	<scm>
 		<connection>scm:git:git//github.com/nsterg/skyscanner-adaptor-api.git</connection>
@@ -57,6 +57,7 @@
 			<version>0.2</version>
 			<scope>test</scope>
 		</dependency>
+
 
 	</dependencies>
 
