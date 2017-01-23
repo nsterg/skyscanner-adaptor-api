@@ -25,9 +25,18 @@ public class SkyscannerCheapestQuotesResponseUnmarshalTest {
   private static final String QUOTE_DATE = "2016-09-12T00:00:00";
 
   private static final String CARRIER = "easyjet";
-  private static final String ORIGIN = "ATH";
-  private static final String DESTINATION1 = "LND";
-  private static final String DESTINATION2 = "MAD";
+  private static final String ORIGIN = "Athens";
+  private static final String DESTINATION1 = "London";
+  private static final String DESTINATION2 = "Madrid";
+  private static final String AIRPORT_CODE1 = "LND";
+  private static final String AIRPORT_CODE2 = "MAD";
+  private static final String AIRPORT_CODE3 = "ATH";
+
+  private static final String COUNTRY1 = "United Kingdom";
+  private static final String COUNTRY2 = "Spain";
+  private static final String COUNTRY3 = "Greece";
+
+
 
   private ObjectMapper mapper;
 
@@ -44,11 +53,11 @@ public class SkyscannerCheapestQuotesResponseUnmarshalTest {
     // @formatter:off
     final SkyscannerCheapestQuotesResponse expectedDto = aSkyscannerCheapestQuotesResponse().withQuotes(
                                                             aSkyscannerQuote().withDirect(true).withPrice(62).withQuoteDate(QUOTE_DATE)
-                                                              .withInboundLeg(buildInBoundLeg(DESTINATION1))
-                                                              .withOutboundLeg(buildOutBoundLeg(DESTINATION1)),
+                                                              .withInboundLeg(buildInBoundLeg(DESTINATION1, AIRPORT_CODE3, COUNTRY3))
+                                                              .withOutboundLeg(buildOutBoundLeg(DESTINATION1, AIRPORT_CODE1, COUNTRY1)),
                                                             aSkyscannerQuote().withDirect(true).withPrice(72).withQuoteDate(QUOTE_DATE)
-                                                              .withInboundLeg(buildInBoundLeg(DESTINATION2))
-                                                              .withOutboundLeg(buildOutBoundLeg(DESTINATION2)))
+                                                              .withInboundLeg(buildInBoundLeg(DESTINATION2, AIRPORT_CODE3, COUNTRY3))
+                                                              .withOutboundLeg(buildOutBoundLeg(DESTINATION2, AIRPORT_CODE2, COUNTRY2)))
                                                           .build();
     // @formatter:on
 
@@ -62,14 +71,16 @@ public class SkyscannerCheapestQuotesResponseUnmarshalTest {
 
   }
 
-  private LegBuilder buildOutBoundLeg(final String destination) throws ParseException {
+  private LegBuilder buildOutBoundLeg(final String destination, final String airportCode,
+      final String country) throws ParseException {
     return aLeg().withCarrier(CARRIER).withOrigin(ORIGIN).withDestination(destination)
-        .withDepartureDate(OUT_BOUND_DATE);
+        .withAirportCode(airportCode).withCountry(country).withDepartureDate(OUT_BOUND_DATE);
   }
 
-  private LegBuilder buildInBoundLeg(final String destination) throws ParseException {
+  private LegBuilder buildInBoundLeg(final String destination, final String airportCode,
+      final String country) throws ParseException {
     return aLeg().withCarrier(CARRIER).withOrigin(destination).withDestination(ORIGIN)
-        .withDepartureDate(IN_BOUND_DATE);
+        .withAirportCode(airportCode).withCountry(country).withDepartureDate(IN_BOUND_DATE);
   }
 
 }
