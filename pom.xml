@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.flymatcher</groupId>
 	<artifactId>skyscanner-adaptor-api</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.8-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<scm>
 		<connection>scm:git:git//github.com/nsterg/skyscanner-adaptor-api.git</connection>
