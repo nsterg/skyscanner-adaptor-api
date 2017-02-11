@@ -23,6 +23,8 @@ public class Leg {
 
   private String country;
 
+  private String countryCode;
+
   @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
   private LocalDateTime departureDate;
 
@@ -72,6 +74,14 @@ public class Leg {
 
   public void setCountry(final String country) {
     this.country = country;
+  }
+
+  public String getCountryCode() {
+    return countryCode;
+  }
+
+  public void setCountryCode(final String countryCode) {
+    this.countryCode = countryCode;
   }
 
   @Override

@@ -16,6 +16,7 @@ public class LegBuilder {
   private LocalDateTime departureDate;
   private String airportCode;
   private String country;
+  private String countryCode;
 
   private LegBuilder() {}
 
@@ -32,6 +33,7 @@ public class LegBuilder {
     leg.setDepartureDate(departureDate);
     leg.setAirportCode(airportCode);
     leg.setCountry(country);
+    leg.setCountryCode(countryCode);
 
     return leg;
   }
@@ -53,6 +55,11 @@ public class LegBuilder {
 
   public LegBuilder withCountry(final String country) {
     this.country = country;
+    return this;
+  }
+
+  public LegBuilder withCountryCode(final String countryCode) {
+    this.countryCode = countryCode;
     return this;
   }
 
