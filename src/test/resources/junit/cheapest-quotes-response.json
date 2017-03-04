@@ -8,18 +8,20 @@
         "carrier": "easyjet",
         "origin": "Athens",
         "destination": "London",
+        "originCode": "ATH",
+        "destinationCode": "LND",        
         "country": "United Kingdom",
         "countryCode": "UK",
-        "airportCode": "LND",         
         "departureDate": "2016-10-10T00:00:00"
       },
       "inboundLeg": {
         "carrier": "easyjet",
         "origin": "London",
         "destination": "Athens",
+        "originCode": "LND",
+        "destinationCode": "ATH",           
         "country": "Greece",
         "countryCode": "GR",
-        "airportCode": "ATH",        
         "departureDate": "2016-10-20T00:00:00"
       }
     },
@@ -31,18 +33,20 @@
         "carrier": "easyjet",
         "origin": "Athens",
         "destination": "Madrid",
+        "originCode": "ATH",
+        "destinationCode": "MAD",          
         "country": "Spain",
         "countryCode": "ES",
-        "airportCode": "MAD",          
         "departureDate": "2016-10-10T00:00:00"
       },
       "inboundLeg": {
         "carrier": "easyjet",
         "origin": "Madrid",
         "destination": "Athens",
+        "originCode": "MAD",
+        "destinationCode": "ATH",         
         "country": "Greece",
         "countryCode": "GR",
-        "airportCode": "ATH",         
         "departureDate": "2016-10-20T00:00:00"
       }
     }

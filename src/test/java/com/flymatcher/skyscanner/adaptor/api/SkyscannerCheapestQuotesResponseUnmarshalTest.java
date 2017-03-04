@@ -56,10 +56,10 @@ public class SkyscannerCheapestQuotesResponseUnmarshalTest {
     // @formatter:off
     final SkyscannerCheapestQuotesResponse expectedDto = aSkyscannerCheapestQuotesResponse().withQuotes(
                                                             aSkyscannerQuote().withDirect(true).withPrice(62).withQuoteDate(QUOTE_DATE)
-                                                              .withInboundLeg(buildInBoundLeg(DESTINATION1, AIRPORT_CODE3, COUNTRY3, COUNTRY_CODE3))
+                                                              .withInboundLeg(buildInBoundLeg(DESTINATION1, AIRPORT_CODE1, COUNTRY3, COUNTRY_CODE3))
                                                               .withOutboundLeg(buildOutBoundLeg(DESTINATION1, AIRPORT_CODE1, COUNTRY1, COUNTRY_CODE1)),
                                                             aSkyscannerQuote().withDirect(true).withPrice(72).withQuoteDate(QUOTE_DATE)
-                                                              .withInboundLeg(buildInBoundLeg(DESTINATION2, AIRPORT_CODE3, COUNTRY3, COUNTRY_CODE3))
+                                                              .withInboundLeg(buildInBoundLeg(DESTINATION2, AIRPORT_CODE2, COUNTRY3, COUNTRY_CODE3))
                                                               .withOutboundLeg(buildOutBoundLeg(DESTINATION2, AIRPORT_CODE2, COUNTRY2, COUNTRY_CODE2)))
                                                           .build();
     // @formatter:on
@@ -77,15 +77,15 @@ public class SkyscannerCheapestQuotesResponseUnmarshalTest {
   private LegBuilder buildOutBoundLeg(final String destination, final String airportCode,
       final String country, final String countryCode) throws ParseException {
     return aLeg().withCarrier(CARRIER).withOrigin(ORIGIN).withDestination(destination)
-        .withAirportCode(airportCode).withCountry(country).withCountryCode(countryCode)
-        .withDepartureDate(OUT_BOUND_DATE);
+        .withDestinationCode(airportCode).withOriginCode(AIRPORT_CODE3).withCountry(country)
+        .withCountryCode(countryCode).withDepartureDate(OUT_BOUND_DATE);
   }
 
   private LegBuilder buildInBoundLeg(final String destination, final String airportCode,
       final String country, final String countryCode) throws ParseException {
     return aLeg().withCarrier(CARRIER).withOrigin(destination).withDestination(ORIGIN)
-        .withAirportCode(airportCode).withCountry(country).withCountryCode(countryCode)
-        .withDepartureDate(IN_BOUND_DATE);
+        .withDestinationCode(AIRPORT_CODE3).withOriginCode(airportCode).withCountry(country)
+        .withCountryCode(countryCode).withDepartureDate(IN_BOUND_DATE);
   }
 
 }

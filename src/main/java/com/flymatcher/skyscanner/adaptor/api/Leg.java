@@ -7,19 +7,16 @@ import static org.apache.commons.lang.builder.ToStringBuilder.reflectionToString
 import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 public class Leg {
-
-  @JsonPropertyOrder({"carrier", "origin", "destination", "departureDate"})
 
   private String carrier;
 
   private String origin;
+  private String originCode;
 
   private String destination;
-
-  private String airportCode;
+  private String destinationCode;
 
   private String country;
 
@@ -44,12 +41,30 @@ public class Leg {
     this.origin = origin;
   }
 
+
+  public String getOriginCode() {
+    return originCode;
+  }
+
+  public void setOriginCode(final String originCode) {
+    this.originCode = originCode;
+  }
+
   public String getDestination() {
     return destination;
   }
 
   public void setDestination(final String destination) {
     this.destination = destination;
+  }
+
+
+  public String getDestinationCode() {
+    return destinationCode;
+  }
+
+  public void setDestinationCode(final String destinationCode) {
+    this.destinationCode = destinationCode;
   }
 
   public LocalDateTime getDepartureDate() {
@@ -60,13 +75,6 @@ public class Leg {
     this.departureDate = departureDate;
   }
 
-  public String getAirportCode() {
-    return airportCode;
-  }
-
-  public void setAirportCode(final String airportCode) {
-    this.airportCode = airportCode;
-  }
 
   public String getCountry() {
     return country;

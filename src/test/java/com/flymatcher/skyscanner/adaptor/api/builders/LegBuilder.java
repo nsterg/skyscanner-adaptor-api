@@ -13,8 +13,9 @@ public class LegBuilder {
   private String carrier;
   private String origin;
   private String destination;
+  private String originCode;
+  private String destinationCode;
   private LocalDateTime departureDate;
-  private String airportCode;
   private String country;
   private String countryCode;
 
@@ -30,8 +31,9 @@ public class LegBuilder {
     leg.setCarrier(carrier);
     leg.setOrigin(origin);
     leg.setDestination(destination);
+    leg.setOriginCode(originCode);
+    leg.setDestinationCode(destinationCode);
     leg.setDepartureDate(departureDate);
-    leg.setAirportCode(airportCode);
     leg.setCountry(country);
     leg.setCountryCode(countryCode);
 
@@ -53,6 +55,17 @@ public class LegBuilder {
     return this;
   }
 
+
+  public LegBuilder withOriginCode(final String originCode) {
+    this.originCode = originCode;
+    return this;
+  }
+
+  public LegBuilder withDestinationCode(final String destinationCode) {
+    this.destinationCode = destinationCode;
+    return this;
+  }
+
   public LegBuilder withCountry(final String country) {
     this.country = country;
     return this;
@@ -63,10 +76,6 @@ public class LegBuilder {
     return this;
   }
 
-  public LegBuilder withAirportCode(final String airportCode) {
-    this.airportCode = airportCode;
-    return this;
-  }
 
   public LegBuilder withDepartureDate(final LocalDateTime departureDate) {
     this.departureDate = departureDate;
